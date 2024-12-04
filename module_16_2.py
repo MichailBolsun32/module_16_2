@@ -37,9 +37,9 @@ async def get_user_info(username: Annotated[str, Path(min_length=5,
                                              max_length=20,
                                              description='Enter username',
                                              example='UrbanUser')] ,
-                        age: int=Path(ge=18,
+                        age: Annotated[int, Path(ge=18,
                                       le=120,
                                       description='Enter age',
                                       example='24'
-                                      )) -> dict:
+                                      )]) -> dict:
     return {"message": f"Информация о пользователе. Имя: {username}, Возраст: {age}"}
